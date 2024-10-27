@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="moduleMapping">
+      <map>
+        <entry key="account-api-spec" value="api-spec" />
+        <entry key="account-domain" value="domain" />
+        <entry key="account-domain-api" value="domain-api" />
+        <entry key="account-inbound-rest-controller" value="inbound-controller" />
+        <entry key="account-outbound-repository-jpa" value="outbound-repository-jpa" />
+        <entry key="customer-outbound-account" value="outbound-account" />
+      </map>
+    </option>
+  </component>
+</project>

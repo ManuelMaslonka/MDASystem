@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.maslonka.mda.system</groupId>
+        <artifactId>MDASystem</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>springboot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>springboot</name>
+    <properties>
+        <java.version>22</java.version>
+        <spring-modulith.version>1.2.4</spring-modulith.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.maslonka.mda.system.account</groupId>
+            <artifactId>account-inbound-rest-controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.maslonka.mda.system.account</groupId>
+            <artifactId>account-domain-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.maslonka.mda.system.account</groupId>
+            <artifactId>account-outbound-repository-jpa</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.maslonka.mda.system.customer</groupId>
+            <artifactId>customer-inbound-rest-controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

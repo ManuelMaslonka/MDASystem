@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: Account API
+  version: 1.0.0
+
+paths:
+  /accounts/{Id}:
+    get:
+      summary: Get account details
+      operationId: getAccount
+      parameters:
+        - name: Id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '404':
+          description: Account not found
+
+  /accounts:
+    post:
+      summary: Create a new account
+      operationId: createAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountRequest'
+      responses:
+        '201':
+          description: Account created
+        '400':
+          description: Invalid input
+
+
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        typeOfAccount:
+          type: string
+        balance:
+            $ref: '#/components/schemas/Balance'
+
+    AccountRequest:
+      type: object
+      properties:
+        typeOfAccount:
+          type: string
+        balance:
+            $ref: '#/components/schemas/Balance'
+
+    Balance:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: decimal
+
