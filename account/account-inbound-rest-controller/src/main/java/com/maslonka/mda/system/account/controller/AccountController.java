@@ -1,45 +1,40 @@
 package com.maslonka.mda.system.account.controller;
 
-import com.maslonka.mda.system.account.mapper.AccountMapper;
-import com.maslonka.mda.system.account.mapper.AccountRequestMapper;
-import com.maslonka.mda.system.account.rest.api.AccountsApi;
+import com.maslonka.mda.system.account.domainapi.AccountApi;
+import com.maslonka.mda.system.account.domainapi.dto.AccountRequestDomainDto;
+import com.maslonka.mda.system.account.mapper.AccountDtoMapper;
+import com.maslonka.mda.system.account.mapper.AccountRequestDtoMapper;
+import com.maslonka.mda.system.account.rest.api.AccountsRestApi;
 import com.maslonka.mda.system.account.rest.dto.AccountDto;
 import com.maslonka.mda.system.account.rest.dto.AccountRequestDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sk.maslonka.mda.system.account.domain.account.Account;
-import sk.maslonka.mda.system.account.domain.account.AccountFacade;
-import sk.maslonka.mda.system.account.domain.account.AccountRequest;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
 @RestController
-public class AccountController implements AccountsApi {
+public class AccountController implements AccountsRestApi {
 
-    private final AccountFacade accountFacade;
+    private final AccountApi accountServiceApi;
+    private final AccountDtoMapper accountDtoMapper;
+    private final AccountRequestDtoMapper accountRequestDtoMapper;
 
-    private final AccountMapper accountMapper;
-    private final AccountRequestMapper accountRequestMapper;
-
-
-    public AccountController(AccountFacade accountFacade, AccountMapper accountMapper, AccountRequestMapper accountRequestMapper) {
-        this.accountFacade = accountFacade;
-        this.accountMapper = accountMapper;
-        this.accountRequestMapper = accountRequestMapper;
+    public AccountController(AccountApi accountServiceApi, AccountDtoMapper accountDtoMapper, AccountRequestDtoMapper accountRequestDtoMapper) {
+        this.accountServiceApi = accountServiceApi;
+        this.accountDtoMapper = accountDtoMapper;
+        this.accountRequestDtoMapper = accountRequestDtoMapper;
     }
 
     @Override
     public ResponseEntity<Void> createAccount(AccountRequestDto accountRequestDto) {
-        AccountRequest account = accountRequestMapper.toEntity(accountRequestDto);
-        accountFacade.create(account);
-        URI location = URI.create("/accounts/");
+        AccountRequestDomainDto accountRequestDomainDto = accountRequestDtoMapper.toEntity(accountRequestDto);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(accountRequestDomainDto).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @Override
     public ResponseEntity<AccountDto> getAccount(Long id) {
-        AccountDto accountDto = accountMapper.toDto(accountFacade.read(id));
-        return ResponseEntity.ok(accountDto);
+        return ResponseEntity.ok(accountDtoMapper.toDto(accountServiceApi.read(id)));
     }
 }

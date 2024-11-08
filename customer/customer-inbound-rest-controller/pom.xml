@@ -17,8 +17,9 @@
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.customer</groupId>
-            <artifactId>customer-outbound-account</artifactId>
+            <artifactId>customer-outbound-account-api</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -41,7 +42,6 @@
                                     </excludes>
                                     <includes>
                                         <!-- Domain is obviously required -->
-                                        <include>com.maslonka.mda.system.customer:customer-outbound-account</include>
                                     </includes>
                                 </bannedDependencies>
                             </rules>

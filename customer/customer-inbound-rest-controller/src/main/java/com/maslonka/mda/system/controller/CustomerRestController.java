@@ -1,25 +1,23 @@
 package com.maslonka.mda.system.controller;
 
-import com.maslonka.mda.system.customer.accountapi.OutboundAccountApi;
+import com.maslonka.mda.system.customer.accountapi.CustomerAccountApi;
+import com.maslonka.mda.system.customer.accountapi.dto.CustomerAccountDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sk.maslonka.mda.system.account.domain.account.Account;
 
 @RestController
 @RequestMapping("/customer")
 public class CustomerRestController {
 
-    private final OutboundAccountApi customerService;
+    private final CustomerAccountApi customerService;
 
-    public CustomerRestController(OutboundAccountApi customerService) {
+    public CustomerRestController(CustomerAccountApi customerService) {
         this.customerService = customerService;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        Account read = customerService.read(10L);
-        String readString = read.toString();
-        return readString;
+    @GetMapping("/account")
+    public CustomerAccountDto getAccount() {
+        return customerService.read(1L);
     }
 }

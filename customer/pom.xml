@@ -12,7 +12,7 @@
     <name>customer</name>
     <modules>
         <module>customer-domain</module>
-        <module>customer-outbound-account</module>
         <module>customer-inbound-rest-controller</module>
+        <module>customer-outbound-account-api</module>
     </modules>
 </project>

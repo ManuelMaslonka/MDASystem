@@ -21,12 +21,7 @@
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.account</groupId>
-            <artifactId>account-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.maslonka.mda.system.account</groupId>
-            <artifactId>account-outbound-repository-jpa</artifactId>
+            <artifactId>account-domain-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -67,6 +62,32 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <!-- Activate whitelisting of allowed submodules -->
+                                        <exclude>com.maslonka.mda.system.account:*</exclude>
+                                    </excludes>
+                                    <includes>
+                                        <!-- Domain is obviously required -->
+                                        <include>com.maslonka.mda.system.account:account-domain-api</include>
+                                        <!-- API spec is required for the controller -->
+                                        <include>com.maslonka.mda.system.account:account-api-spec</include>
+                                    </includes>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

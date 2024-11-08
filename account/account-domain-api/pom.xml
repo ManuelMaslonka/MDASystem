@@ -9,24 +9,6 @@
     <artifactId>account-domain-api</artifactId>
     <name>account-domain-api</name>
 
-    <properties>
-        <spring-context.version>6.1.13</spring-context.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.maslonka.mda.system.account</groupId>
-            <artifactId>account-domain</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring-context.version}</version>
-        </dependency>
-    </dependencies>
-
-
     <build>
         <plugins>
             <plugin>
@@ -43,10 +25,6 @@
                                         <!-- Activate whitelisting of allowed submodules -->
                                         <exclude>com.maslonka.mda.system:*</exclude>
                                     </excludes>
-                                    <includes>
-                                        <!-- Domain is obviously required -->
-                                        <include>com.maslonka.mda.system.account:account-domain</include>
-                                    </includes>
                                 </bannedDependencies>
                             </rules>
                         </configuration>

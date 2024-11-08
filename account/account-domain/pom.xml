@@ -8,6 +8,17 @@
     </parent>
     <artifactId>account-domain</artifactId>
     <name>account-domain</name>
+    <properties>
+        <account-domain-api.version>1.0-SNAPSHOT</account-domain-api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.maslonka.mda.system.account</groupId>
+            <artifactId>account-domain-api</artifactId>
+            <version>${account-domain-api.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -26,7 +37,7 @@
                                         <exclude>com.maslonka.mda.system:*</exclude>
                                     </excludes>
                                     <includes>
-                                        <!-- Domain is obviously required -->
+                                        <include>com.maslonka.mda.system.account:account-domain-api</include>
                                     </includes>
                                 </bannedDependencies>
                             </rules>

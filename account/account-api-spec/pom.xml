@@ -58,6 +58,7 @@
                             <apiPackage>com.maslonka.mda.system.account.rest.api</apiPackage>
                             <modelPackage>com.maslonka.mda.system.account.rest.dto</modelPackage>
                             <modelNameSuffix>Dto</modelNameSuffix>
+                            <apiNameSuffix>RestApi</apiNameSuffix>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
