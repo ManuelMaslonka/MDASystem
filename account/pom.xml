@@ -6,10 +6,12 @@
         <artifactId>MDASystem</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <groupId>com.maslonka.mda.system.account</groupId>
     <artifactId>account</artifactId>
-    <packaging>pom</packaging>
     <name>account</name>
+    <packaging>pom</packaging>
+
     <modules>
         <module>account-domain</module>
         <module>account-domain-api</module>

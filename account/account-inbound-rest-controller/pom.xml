@@ -10,14 +10,13 @@
     <name>account-inbound-rest-controller</name>
 
     <properties>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <mapstruct.version>1.6.2</mapstruct.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.3.4</version>
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.account</groupId>
@@ -38,7 +37,6 @@
             <groupId>com.maslonka.mda.system.account</groupId>
             <artifactId>account-api-spec</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 

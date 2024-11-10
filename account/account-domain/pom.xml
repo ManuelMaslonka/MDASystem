@@ -34,7 +34,7 @@
                                 <bannedDependencies>
                                     <excludes>
                                         <!-- Activate whitelisting of allowed submodules -->
-                                        <exclude>com.maslonka.mda.system:*</exclude>
+                                        <exclude>com.maslonka.mda.system.account:*</exclude>
                                     </excludes>
                                     <includes>
                                         <include>com.maslonka.mda.system.account:account-domain-api</include>

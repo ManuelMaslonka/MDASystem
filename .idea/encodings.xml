@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/account/account-api-spec/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/account/account-architecture-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/account/account-domain-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/account/account-domain/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/account/account-inbound-rest-controller/src/main/java" charset="UTF-8" />
@@ -9,7 +10,9 @@
     <file url="file://$PROJECT_DIR$/account/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/account/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/customer-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/customer/customer-domain/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/customer-inbound-rest-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/customer/customer-inbound-rest-controller/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/customer-outbound-account-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/customer-outbound-account/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/src/main/java" charset="UTF-8" />

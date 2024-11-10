@@ -18,22 +18,22 @@
         <dependency>
             <groupId>com.maslonka.mda.system.account</groupId>
             <artifactId>account-inbound-rest-controller</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.account</groupId>
             <artifactId>account-domain-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.account</groupId>
             <artifactId>account-outbound-repository-jpa</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.maslonka.mda.system.customer</groupId>
             <artifactId>customer-inbound-rest-controller</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

@@ -2,9 +2,8 @@ package com.maslonka.mda.system.springboot.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import sk.maslonka.mda.system.account.domain.account.AccountFacade;
-import sk.maslonka.mda.system.account.domain.account.AccountRepository;
-import sk.maslonka.mda.system.account.domain.account.AccountService;
+import com.maslonka.mda.system.account.domain.account.AccountFacade;
+import com.maslonka.mda.system.account.domain.account.AccountRepository;
 
 @Configuration
 public class AccountConfiguration {

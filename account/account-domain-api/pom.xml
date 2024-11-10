@@ -23,7 +23,7 @@
                                 <bannedDependencies>
                                     <excludes>
                                         <!-- Activate whitelisting of allowed submodules -->
-                                        <exclude>com.maslonka.mda.system:*</exclude>
+                                        <exclude>com.maslonka.mda.system.account:*</exclude>
                                     </excludes>
                                 </bannedDependencies>
                             </rules>

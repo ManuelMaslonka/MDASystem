@@ -4,7 +4,7 @@
         version="3.0">
 
     <!--    Account   -->
-    <entity class="sk.maslonka.mda.system.account.domain.account.Account" access="FIELD">
+    <entity class="com.maslonka.mda.system.account.domain.account.Account" access="FIELD">
         <table name="accounts"/>
         <attributes>
             <id name="id">
@@ -23,7 +23,7 @@
     </entity>
 
     <!--    Balance   -->
-    <embeddable class="sk.maslonka.mda.system.account.domain.account.Balance">
+    <embeddable class="com.maslonka.mda.system.account.domain.account.Balance">
         <attributes>
             <basic name="amount">
                 <column name="amount" column-definition="DECIMAL(19, 2)"/>

@@ -6,13 +6,16 @@
         <artifactId>MDASystem</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <groupId>com.maslonka.mda.system.customer</groupId>
     <artifactId>customer</artifactId>
-    <packaging>pom</packaging>
     <name>customer</name>
+    <packaging>pom</packaging>
+
     <modules>
         <module>customer-domain</module>
         <module>customer-inbound-rest-controller</module>
         <module>customer-outbound-account-api</module>
     </modules>
+
 </project>

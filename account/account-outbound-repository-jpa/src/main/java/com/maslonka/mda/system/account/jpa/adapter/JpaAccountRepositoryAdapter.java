@@ -2,8 +2,8 @@ package com.maslonka.mda.system.account.jpa.adapter;
 
 import org.springframework.stereotype.Repository;
 import com.maslonka.mda.system.account.jpa.repository.SpringDataAccountRepository;
-import sk.maslonka.mda.system.account.domain.account.Account;
-import sk.maslonka.mda.system.account.domain.account.AccountRepository;
+import com.maslonka.mda.system.account.domain.account.Account;
+import com.maslonka.mda.system.account.domain.account.AccountRepository;
 
 @Repository
 public class JpaAccountRepositoryAdapter implements AccountRepository {

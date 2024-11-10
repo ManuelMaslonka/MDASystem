@@ -2,7 +2,7 @@ package com.maslonka.mda.system.account.jpa.converter;
 
 import jakarta.persistence.Converter;
 import jakarta.persistence.AttributeConverter;
-import sk.maslonka.mda.system.account.domain.account.Balance;
+import com.maslonka.mda.system.account.domain.account.Balance;
 
 import java.math.BigDecimal;
 
