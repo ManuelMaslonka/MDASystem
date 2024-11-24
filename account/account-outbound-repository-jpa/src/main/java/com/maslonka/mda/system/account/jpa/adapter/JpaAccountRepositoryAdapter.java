@@ -5,6 +5,8 @@ import com.maslonka.mda.system.account.jpa.repository.SpringDataAccountRepositor
 import com.maslonka.mda.system.account.domain.account.Account;
 import com.maslonka.mda.system.account.domain.account.AccountRepository;
 
+import java.util.Optional;
+
 @Repository
 public class JpaAccountRepositoryAdapter implements AccountRepository {
 
@@ -15,10 +17,8 @@ public class JpaAccountRepositoryAdapter implements AccountRepository {
     }
 
     @Override
-    public Account read(Long id) {
-        return accountRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Account not found")
-        );
+    public Optional<Account> read(Long id) {
+        return accountRepository.findById(id);
     }
 
     @Override
@@ -33,6 +33,6 @@ public class JpaAccountRepositoryAdapter implements AccountRepository {
 
     @Override
     public void update(Account aggregate) {
-        accountRepository.delete(aggregate);
+        accountRepository.save(aggregate);
     }
 }

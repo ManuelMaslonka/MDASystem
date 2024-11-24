@@ -1,6 +1,6 @@
 package com.maslonka.mda.system.account.mapper;
 
-import com.maslonka.mda.system.account.domainapi.dto.BalanceDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.BalanceDomainDto;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.ERROR, componentModel = MappingConstants.ComponentModel.SPRING)

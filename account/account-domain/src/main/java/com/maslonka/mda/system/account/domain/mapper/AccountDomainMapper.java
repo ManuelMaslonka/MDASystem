@@ -3,9 +3,9 @@ package com.maslonka.mda.system.account.domain.mapper;
 import com.maslonka.mda.system.account.domain.account.Account;
 import com.maslonka.mda.system.account.domain.account.AccountBuilder;
 import com.maslonka.mda.system.account.domain.account.AccountRequest;
-import com.maslonka.mda.system.account.domainapi.dto.AccountDomainDto;
-import com.maslonka.mda.system.account.domainapi.dto.AccountDomainDtoBuilder;
-import com.maslonka.mda.system.account.domainapi.dto.AccountRequestDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDtoBuilder;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
 
 public interface AccountDomainMapper {
 

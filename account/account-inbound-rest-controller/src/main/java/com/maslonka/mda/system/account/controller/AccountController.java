@@ -1,7 +1,7 @@
 package com.maslonka.mda.system.account.controller;
 
-import com.maslonka.mda.system.account.domainapi.AccountApi;
-import com.maslonka.mda.system.account.domainapi.dto.AccountRequestDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.AccountApi;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
 import com.maslonka.mda.system.account.mapper.AccountDtoMapper;
 import com.maslonka.mda.system.account.mapper.AccountRequestDtoMapper;
 import com.maslonka.mda.system.account.rest.api.AccountsRestApi;
@@ -29,6 +29,7 @@ public class AccountController implements AccountsRestApi {
     @Override
     public ResponseEntity<Void> createAccount(AccountRequestDto accountRequestDto) {
         AccountRequestDomainDto accountRequestDomainDto = accountRequestDtoMapper.toEntity(accountRequestDto);
+        accountServiceApi.create(accountRequestDomainDto);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(accountRequestDomainDto).toUri();
         return ResponseEntity.created(location).build();
     }

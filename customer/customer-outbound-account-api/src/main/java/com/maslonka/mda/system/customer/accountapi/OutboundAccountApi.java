@@ -1,7 +1,7 @@
 package com.maslonka.mda.system.customer.accountapi;
 
-import com.maslonka.mda.system.account.domainapi.AccountApi;
-import com.maslonka.mda.system.account.domainapi.dto.AccountDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.AccountApi;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
 import com.maslonka.mda.system.customer.accountapi.dto.CustomerAccountDto;
 import com.maslonka.mda.system.customer.accountapi.mapper.CustomerAccountMapper;
 

@@ -41,6 +41,23 @@ paths:
         '400':
           description: Invalid input
 
+  /transaction:
+    post:
+      summary: Process a transaction
+      operationId: processTransaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionRequest'
+      responses:
+        '200':
+          description: Transaction processed
+        '400':
+          description: Invalid input
+
+
 
 components:
   schemas:
@@ -70,3 +87,23 @@ components:
           type: string
           format: decimal
 
+    TransactionRequest:
+      type: object
+      properties:
+        transactionType:
+          $ref: '#/components/schemas/TransactionType'
+        accountSource:
+          type: integer
+          format: int64
+        accountDestination:
+          type: integer
+          format: int64
+        amount:
+          $ref: '#/components/schemas/Balance'
+
+    TransactionType:
+      type: string
+      enum:
+        - DEPOSIT
+        - WITHDRAW
+        - TRANSFER

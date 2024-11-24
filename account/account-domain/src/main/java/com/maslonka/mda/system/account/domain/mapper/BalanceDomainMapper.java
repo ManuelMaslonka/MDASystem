@@ -1,6 +1,6 @@
 package com.maslonka.mda.system.account.domain.mapper;
 
-import com.maslonka.mda.system.account.domainapi.dto.BalanceDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.BalanceDomainDto;
 import com.maslonka.mda.system.account.domain.account.Balance;
 
 public interface BalanceDomainMapper {

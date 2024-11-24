@@ -10,7 +10,9 @@ public class AccountFacade implements AccountService {
 
     @Override
     public Account read(Long accountId) {
-        return accountRepository.read(accountId);
+        return accountRepository.read(accountId).orElseThrow(
+                () -> new RuntimeException("Account not found")
+        );
     }
 
     @Override

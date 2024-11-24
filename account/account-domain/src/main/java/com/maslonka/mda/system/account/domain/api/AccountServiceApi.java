@@ -1,8 +1,8 @@
 package com.maslonka.mda.system.account.domain.api;
 
-import com.maslonka.mda.system.account.domainapi.AccountApi;
-import com.maslonka.mda.system.account.domainapi.dto.AccountDomainDto;
-import com.maslonka.mda.system.account.domainapi.dto.AccountRequestDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.AccountApi;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
 import com.maslonka.mda.system.account.domain.account.Account;
 import com.maslonka.mda.system.account.domain.account.AccountRequest;
 import com.maslonka.mda.system.account.domain.account.AccountService;

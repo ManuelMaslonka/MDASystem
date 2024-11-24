@@ -1,4 +1,4 @@
-package com.maslonka.mda.system.account.domainapi.dto;
+package com.maslonka.mda.system.account.domainapi.account.dto;
 
 public final class AccountDomainDtoBuilder {
     private Long id;

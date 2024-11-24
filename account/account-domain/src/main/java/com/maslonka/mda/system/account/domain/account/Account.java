@@ -2,6 +2,8 @@ package com.maslonka.mda.system.account.domain.account;
 
 import com.maslonka.mda.system.account.domain.utills.AggregateRoot;
 
+import java.util.Objects;
+
 public class Account implements AggregateRoot<Long> {
 
     private Long id;
@@ -11,9 +13,9 @@ public class Account implements AggregateRoot<Long> {
     public Account() {
     }
 
-    public Account(TypeOfAccount typeOfAccount, Balance balance) {
-        this.typeOfAccount = typeOfAccount;
-        this.balance = balance;
+    Account(TypeOfAccount typeOfAccount, Balance balance) {
+        this.typeOfAccount = Objects.requireNonNull(typeOfAccount, "typeOfAccount cannot be null");
+        this.balance = Objects.requireNonNull(balance, "balance cannot be null");
     }
 
     @Deprecated

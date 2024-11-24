@@ -1,6 +1,6 @@
 package com.maslonka.mda.system.account.domain.mapper;
 
-import com.maslonka.mda.system.account.domainapi.dto.TypeOfAccountDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.TypeOfAccountDomainDto;
 import com.maslonka.mda.system.account.domain.account.TypeOfAccount;
 
 public interface TypeOfAccountDomainMapper {

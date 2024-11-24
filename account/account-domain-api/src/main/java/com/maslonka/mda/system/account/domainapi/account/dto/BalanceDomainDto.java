@@ -1,4 +1,4 @@
-package com.maslonka.mda.system.account.domainapi.dto;
+package com.maslonka.mda.system.account.domainapi.account.dto;
 
 import java.math.BigDecimal;
 

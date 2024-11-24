@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<entity-mappings
-        xmlns="https://jakarta.ee/xml/ns/persistence/orm"
-        version="3.0">
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm_3_0.xsd"
+                 version="3.0">
 
     <!--    Account   -->
     <entity class="com.maslonka.mda.system.account.domain.account.Account" access="FIELD">
@@ -16,7 +17,90 @@
             </basic>
             <embedded name="balance">
                 <attribute-override name="amount">
-                    <column name="amount" column-definition="DECIMAL(19, 2)" />
+                    <column name="amount" column-definition="DECIMAL(19, 2)"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
+    <!-- Transaction Base Entity -->
+    <entity class="com.maslonka.mda.system.account.domain.transaction.Transaction" access="FIELD">
+        <table name="transactions"/>
+        <discriminator-column name="transaction_type" discriminator-type="STRING"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </entity>
+
+    <!-- DepositTransaction -->
+    <entity class="com.maslonka.mda.system.account.domain.transaction.DepositTransaction" access="FIELD">
+        <discriminator-value>DEPOSIT</discriminator-value>
+        <attributes>
+            <many-to-one name="account" target-entity="com.maslonka.mda.system.account.domain.account.Account">
+                <join-column name="account_id"/>
+                <cascade>
+                    <cascade-persist/>
+                    <cascade-merge/>
+                    <cascade-refresh/>
+                </cascade>
+            </many-to-one>
+            <embedded name="balance">
+                <attribute-override name="amount">
+                    <column name="balance_amount" column-definition="DECIMAL(19, 2)"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
+    <!-- WithdrawTransaction -->
+    <entity class="com.maslonka.mda.system.account.domain.transaction.WithdrawTransaction" access="FIELD">
+        <discriminator-value>WITHDRAW</discriminator-value>
+        <attributes>
+            <many-to-one name="account" target-entity="com.maslonka.mda.system.account.domain.account.Account">
+                <join-column name="account_id"/>
+                <cascade>
+                    <cascade-persist/>
+                    <cascade-merge/>
+                    <cascade-refresh/>
+                </cascade>
+            </many-to-one>
+            <embedded name="balance">
+                <attribute-override name="amount">
+                    <column name="balance_amount" column-definition="DECIMAL(19, 2)"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
+    <!-- TransferTransaction -->
+    <entity class="com.maslonka.mda.system.account.domain.transaction.TransferTransaction" access="FIELD">
+        <discriminator-value>TRANSFER</discriminator-value>
+        <attributes>
+            <many-to-one name="accountSource" target-entity="com.maslonka.mda.system.account.domain.account.Account">
+                <join-column name="source_account_id"/>
+                <cascade>
+                    <cascade-persist/>
+                    <cascade-merge/>
+                    <cascade-refresh/>
+                </cascade>
+            </many-to-one>
+            <many-to-one name="accountDestination"
+                         target-entity="com.maslonka.mda.system.account.domain.account.Account">
+                <!-- Nastavenie názvu stĺpca cudzieho kľúča pre accountDestination -->
+                <join-column name="destination_account_id"/>
+                <foreign-key foreign-key-definition="fk_transfer_destination_account_id" constraint-mode="CONSTRAINT"
+                             name="fk_transfer_destination_account_id"/>
+                <cascade>
+                    <cascade-persist/>
+                    <cascade-merge/>
+                    <cascade-refresh/>
+                </cascade>
+            </many-to-one>
+            <embedded name="balance">
+                <attribute-override name="amount">
+                    <column name="balance_amount" column-definition="DECIMAL(19, 2)"/>
                 </attribute-override>
             </embedded>
         </attributes>
