@@ -1,12 +1,14 @@
 package com.maslonka.mda.system.account.domain.api;
 
-import com.maslonka.mda.system.account.domainapi.account.AccountApi;
-import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
-import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
 import com.maslonka.mda.system.account.domain.account.Account;
 import com.maslonka.mda.system.account.domain.account.AccountRequest;
 import com.maslonka.mda.system.account.domain.account.AccountService;
 import com.maslonka.mda.system.account.domain.mapper.AccountDomainMapper;
+import com.maslonka.mda.system.account.domainapi.account.AccountApi;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
+import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
+
+import java.util.List;
 
 public class AccountServiceApi implements AccountApi {
 
@@ -20,6 +22,12 @@ public class AccountServiceApi implements AccountApi {
     public AccountDomainDto read(Long accountId) {
         Account account = accountService.read(accountId);
         return AccountDomainMapper.toDto(account);
+    }
+
+    @Override
+    public List<AccountDomainDto> read(List<Long> accountIds) {
+        List<Account> accounts = accountService.read(accountIds);
+        return AccountDomainMapper.toDto(accounts);
     }
 
     @Override
@@ -37,5 +45,10 @@ public class AccountServiceApi implements AccountApi {
     @Override
     public void delete(Long accountId) {
         accountService.delete(accountId);
+    }
+
+    @Override
+    public boolean exists(Long accountId) {
+        return accountService.exists(accountId);
     }
 }

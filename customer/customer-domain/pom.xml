@@ -10,6 +10,19 @@
     <artifactId>customer-domain</artifactId>
     <name>customer-domain</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.maslonka.mda.system.customer</groupId>
+            <artifactId>customer-domain-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.maslonka.mda.system.customer</groupId>
+            <artifactId>customer-outbound-account-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -25,9 +38,13 @@
                                     <excludes>
                                         <!-- Activate whitelisting of allowed submodules -->
                                         <exclude>com.maslonka.mda.system.customer:*</exclude>
+                                        <exclude>com.maslonka.mda.system.account:*</exclude>
                                     </excludes>
                                     <includes>
+                                        <!-- Activate whitelisting of allowed submodules -->
                                         <include>com.maslonka.mda.system.customer:customer-domain-api</include>
+                                        <include>com.maslonka.mda.system.customer:customer-outbound-account-api</include>
+                                        <include>com.maslonka.mda.system.account:account-domain-api</include>
                                     </includes>
                                 </bannedDependencies>
                             </rules>

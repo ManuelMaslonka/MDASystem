@@ -13,10 +13,10 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>account-api-spec</module>
         <module>account-domain</module>
         <module>account-domain-api</module>
         <module>account-inbound-rest-controller</module>
         <module>account-outbound-repository-jpa</module>
-        <module>account-api-spec</module>
     </modules>
 </project>

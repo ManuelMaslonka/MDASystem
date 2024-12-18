@@ -24,6 +24,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.maslonka.mda.system.account</groupId>
+            <artifactId>account-api-spec</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
@@ -32,11 +37,6 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.maslonka.mda.system.account</groupId>
-            <artifactId>account-api-spec</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

@@ -1,5 +1,7 @@
 package com.maslonka.mda.system.account.domain.account;
 
+import java.util.List;
+
 public class AccountFacade implements AccountService {
 
     private final AccountRepository accountRepository;
@@ -13,6 +15,11 @@ public class AccountFacade implements AccountService {
         return accountRepository.read(accountId).orElseThrow(
                 () -> new RuntimeException("Account not found")
         );
+    }
+
+    @Override
+    public List<Account> read(List<Long> accountIds) {
+        return accountRepository.read(accountIds);
     }
 
     @Override
@@ -32,5 +39,10 @@ public class AccountFacade implements AccountService {
     @Override
     public void delete(Long accountId) {
         accountRepository.delete(accountId);
+    }
+
+    @Override
+    public boolean exists(Long accountId) {
+        return accountRepository.exists(accountId);
     }
 }

@@ -8,21 +8,21 @@ public final class AccountDomainDtoBuilder {
     private AccountDomainDtoBuilder() {
     }
 
-    public static AccountDomainDtoBuilder anAccountDto() {
+    public static AccountDomainDtoBuilder AccountDto() {
         return new AccountDomainDtoBuilder();
     }
 
-    public AccountDomainDtoBuilder withId(Long id) {
+    public AccountDomainDtoBuilder Id(Long id) {
         this.id = id;
         return this;
     }
 
-    public AccountDomainDtoBuilder withTypeOfAccount(TypeOfAccountDomainDto typeOfAccount) {
+    public AccountDomainDtoBuilder typeOfAccount(TypeOfAccountDomainDto typeOfAccount) {
         this.typeOfAccount = typeOfAccount;
         return this;
     }
 
-    public AccountDomainDtoBuilder withBalance(BalanceDomainDto balance) {
+    public AccountDomainDtoBuilder balance(BalanceDomainDto balance) {
         this.balance = balance;
         return this;
     }

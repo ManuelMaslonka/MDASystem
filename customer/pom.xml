@@ -16,6 +16,9 @@
         <module>customer-domain</module>
         <module>customer-inbound-rest-controller</module>
         <module>customer-outbound-account-api</module>
+        <module>customer-api-spec</module>
+        <module>customer-domain-api</module>
+        <module>customer-outbound-repository-jpa</module>
     </modules>
 
 </project>

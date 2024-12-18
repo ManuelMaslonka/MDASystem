@@ -3,8 +3,13 @@ package com.maslonka.mda.system.account.domainapi.account;
 import com.maslonka.mda.system.account.domainapi.account.dto.AccountDomainDto;
 import com.maslonka.mda.system.account.domainapi.account.dto.AccountRequestDomainDto;
 
+import java.util.List;
+
 public interface AccountApi {
+
     AccountDomainDto read(Long accountId);
+
+    List<AccountDomainDto> read(List<Long> accountIds);
 
     void create(AccountRequestDomainDto account);
 
@@ -12,4 +17,5 @@ public interface AccountApi {
 
     void delete(Long accountId);
 
+    boolean exists(Long accountId);
 }

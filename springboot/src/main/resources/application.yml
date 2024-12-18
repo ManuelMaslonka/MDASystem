@@ -9,18 +9,30 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         hbm2ddl:
           auto: update
-        format_sql: true
+        format_sql: false
         use_sql_comments: true
         generate_statistics: false
     mapping-resources:
       - account-system-orm.xml
+      - customer-system-orm.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, info
 
 server:
   servlet:
     context-path: /api/v1
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    com.maslonka.mda.system.customer: DEBUG

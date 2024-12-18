@@ -18,6 +18,7 @@
       <set>
         <option value="$PROJECT_DIR$/account/account-architecture-test/pom.xml" />
         <option value="$PROJECT_DIR$/customer/customer-outbound-account/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot/springboot-monitoring/pom.xml" />
       </set>
     </option>
   </component>

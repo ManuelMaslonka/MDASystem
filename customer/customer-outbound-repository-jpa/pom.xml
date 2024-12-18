@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.maslonka.mda.system.customer</groupId>
+        <artifactId>customer</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>customer-outbound-repository-jpa</artifactId>
+    <name>customer-outbound-repository-jpa</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.maslonka.mda.system.customer</groupId>
+            <artifactId>customer-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>com.maslonka.mda.system.customer:*</exclude>
+                                        <exclude>com.maslonka.mda.system.account:*</exclude>
+                                    </excludes>
+                                    <includes>
+                                        <include>com.maslonka.mda.system.customer:customer-domain-api</include>
+                                        <include>com.maslonka.mda.system.customer:customer-domain</include>
+                                        <include>com.maslonka.mda.system.customer:customer-outbound-account-api</include>
+                                        <include>com.maslonka.mda.system.account:account-domain-api</include>
+                                    </includes>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
