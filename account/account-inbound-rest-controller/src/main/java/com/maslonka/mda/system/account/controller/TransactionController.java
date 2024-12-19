@@ -3,13 +3,13 @@ package com.maslonka.mda.system.account.controller;
 import com.maslonka.mda.system.account.domainapi.transaction.TransactionApi;
 import com.maslonka.mda.system.account.domainapi.transaction.dto.TransactionRequestDomainDto;
 import com.maslonka.mda.system.account.mapper.TransactionRequestDomainDtoMapper;
-import com.maslonka.mda.system.account.rest.api.TransactionRestApi;
+import com.maslonka.mda.system.account.rest.api.TransactionsRestApi;
 import com.maslonka.mda.system.account.rest.dto.TransactionRequestDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TransactionController implements TransactionRestApi {
+public class TransactionController implements TransactionsRestApi {
     private final TransactionApi transactionApi;
     private final TransactionRequestDomainDtoMapper transactionRequestDomainDtoMapper;
 

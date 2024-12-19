@@ -3,6 +3,7 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
+        <entry key="MDASystem-java" value="MDASystem" />
         <entry key="account-api-spec" value="api-spec" />
         <entry key="account-domain" value="domain" />
         <entry key="account-domain-api" value="domain-api" />

@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.maslonka.mda.system</groupId>
-    <artifactId>MDASystem</artifactId>
+    <artifactId>MDASystem-java</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MDASystem</name>
@@ -21,6 +21,7 @@
         <module>customer</module>
         <module>springboot</module>
         <module>springboot-monitoring</module>
+        <module>security</module>
     </modules>
 
 </project>

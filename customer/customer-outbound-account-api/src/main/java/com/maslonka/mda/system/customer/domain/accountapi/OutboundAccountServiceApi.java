@@ -7,11 +7,11 @@ import com.maslonka.mda.system.customer.domain.accountapi.mapper.CustomerAccount
 
 import java.util.List;
 
-public class OutboundAccountApi implements CustomerAccountApi {
+public class OutboundAccountServiceApi implements AccountServiceApi {
 
     private final AccountApi accountApi;
 
-    public OutboundAccountApi(AccountApi accountServiceApi) {
+    public OutboundAccountServiceApi(AccountApi accountServiceApi) {
         this.accountApi = accountServiceApi;
     }
 

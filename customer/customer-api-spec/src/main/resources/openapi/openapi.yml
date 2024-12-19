@@ -6,11 +6,13 @@ info:
     name: Manuel Mašlonka
 
 servers:
-  - url: http://localhost:8080/api/v1
+  - url: http://localhost:8080/
 
 paths:
-  /customers:
+  /api/v1/customers:
     post:
+      tags:
+        - Customers
       summary: Create a new customer
       operationId: createCustomer
       requestBody:
@@ -27,8 +29,10 @@ paths:
         '409':
           description: Customer already exists
 
-  /customers/add-account:
+  /api/v1/customers/add-account:
     post:
+      tags:
+        - Customers
       summary: Add account to customer
       operationId: addAccount
       requestBody:
@@ -52,8 +56,10 @@ paths:
         '404':
           description: Customer or account not found
 
-  /customers/{Id}:
+  /api/v1/customers/{Id}:
     get:
+      tags:
+        - Customers
       summary: Get customer details
       operationId: getCustomer
       parameters:

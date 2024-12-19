@@ -1,5 +1,7 @@
 package com.maslonka.mda.system.account.domain.transaction;
 
+import com.maslonka.mda.system.account.domain.transaction.request.TransactionRequest;
+
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
@@ -11,12 +13,7 @@ public class TransactionService {
     }
 
     public void processTransaction(TransactionRequest transactionRequest) {
-        Transaction transaction = transactionFactory.createTransaction(
-                transactionRequest.transactionType(),
-                transactionRequest.accountSource(),
-                transactionRequest.accountDestination(),
-                transactionRequest.amount()
-        );
+        Transaction transaction = transactionFactory.createTransaction(transactionRequest);
         transaction.execute();
         transactionRepository.create(transaction);
     }

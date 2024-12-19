@@ -1,39 +1,35 @@
 package com.maslonka.mda.system.account.domain.transaction;
 
-import com.maslonka.mda.system.account.domain.account.Account;
 import com.maslonka.mda.system.account.domain.account.AccountService;
-import com.maslonka.mda.system.account.domain.account.Balance;
+import com.maslonka.mda.system.account.domain.transaction.proccesor.DepositTransactionProcessor;
+import com.maslonka.mda.system.account.domain.transaction.proccesor.TransactionProcessor;
+import com.maslonka.mda.system.account.domain.transaction.proccesor.TransferTransactionProcessor;
+import com.maslonka.mda.system.account.domain.transaction.proccesor.WithdrawTransactionProcessor;
+import com.maslonka.mda.system.account.domain.transaction.request.DepositRequest;
+import com.maslonka.mda.system.account.domain.transaction.request.TransactionRequest;
+import com.maslonka.mda.system.account.domain.transaction.request.TransferRequest;
+import com.maslonka.mda.system.account.domain.transaction.request.WithdrawRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class TransactionFactory {
 
-    private final AccountService accountService;
+    private final Map<Class<? extends TransactionRequest>, TransactionProcessor<?>> processors = new HashMap<>();
 
     public TransactionFactory(AccountService accountService) {
-        this.accountService = accountService;
+        processors.put(DepositRequest.class, new DepositTransactionProcessor(accountService));
+        processors.put(WithdrawRequest.class, new WithdrawTransactionProcessor(accountService));
+        processors.put(TransferRequest.class, new TransferTransactionProcessor(accountService));
     }
 
-    Transaction createTransaction(TransactionType type, Long sourceAccount, Long destinationAccount, Balance amount) {
-        return switch (type) {
-            case DEPOSIT -> depositTransaction(sourceAccount, amount);
-            case WITHDRAW -> withdrawTransaction(sourceAccount, amount);
-            case TRANSFER -> transferTransaction(sourceAccount, destinationAccount, amount);
-        };
+    @SuppressWarnings("unchecked")
+    public <T extends TransactionRequest> Transaction createTransaction(T request) {
+        TransactionProcessor<T> processor = (TransactionProcessor<T>) processors.get(request.getClass());
+        if (processor == null) {
+            throw new IllegalArgumentException("No processor found for request type: " + request.getClass());
+        }
+        return processor.process(request);
     }
-
-    private Transaction transferTransaction(Long sourceAccountId, Long destinationAccountId, Balance amount) {
-        Account sourceAccount = accountService.read(sourceAccountId);
-        Account destinationAccount = accountService.read(destinationAccountId);
-        return new TransferTransaction(sourceAccount, destinationAccount, amount);
-    }
-
-    private Transaction withdrawTransaction(Long sourceAccountId, Balance amount) {
-        Account sourceAccount = accountService.read(sourceAccountId);
-        return new WithdrawTransaction(sourceAccount, amount);
-    }
-
-    private Transaction depositTransaction(Long sourceAccountId, Balance amount) {
-        Account sourceAccount = accountService.read(sourceAccountId);
-        return new DepositTransaction(sourceAccount, amount);
-    }
-
 }

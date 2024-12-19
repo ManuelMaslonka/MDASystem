@@ -18,5 +18,5 @@ public abstract class Transaction implements AggregateRoot<Long> {
         return id;
     }
 
-    abstract void execute();
+    protected abstract void execute();
 }

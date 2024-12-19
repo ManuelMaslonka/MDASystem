@@ -2,7 +2,7 @@ package com.maslonka.mda.system.account.domain.api;
 
 import com.maslonka.mda.system.account.domain.DomainAccountFacade;
 import com.maslonka.mda.system.account.domain.mapper.TransactionRequestDomainMapper;
-import com.maslonka.mda.system.account.domain.transaction.TransactionRequest;
+import com.maslonka.mda.system.account.domain.transaction.request.TransactionRequest;
 import com.maslonka.mda.system.account.domainapi.transaction.TransactionApi;
 import com.maslonka.mda.system.account.domainapi.transaction.dto.TransactionRequestDomainDto;
 

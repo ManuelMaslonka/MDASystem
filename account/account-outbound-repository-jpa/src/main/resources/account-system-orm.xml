@@ -35,7 +35,7 @@
     </entity>
 
     <!-- DepositTransaction -->
-    <entity class="com.maslonka.mda.system.account.domain.transaction.DepositTransaction" access="FIELD">
+    <entity class="com.maslonka.mda.system.account.domain.transaction.proccesor.DepositTransaction" access="FIELD">
         <discriminator-value>DEPOSIT</discriminator-value>
         <attributes>
             <many-to-one name="account" target-entity="com.maslonka.mda.system.account.domain.account.Account">
@@ -55,7 +55,7 @@
     </entity>
 
     <!-- WithdrawTransaction -->
-    <entity class="com.maslonka.mda.system.account.domain.transaction.WithdrawTransaction" access="FIELD">
+    <entity class="com.maslonka.mda.system.account.domain.transaction.proccesor.WithdrawTransaction" access="FIELD">
         <discriminator-value>WITHDRAW</discriminator-value>
         <attributes>
             <many-to-one name="account" target-entity="com.maslonka.mda.system.account.domain.account.Account">
@@ -75,7 +75,7 @@
     </entity>
 
     <!-- TransferTransaction -->
-    <entity class="com.maslonka.mda.system.account.domain.transaction.TransferTransaction" access="FIELD">
+    <entity class="com.maslonka.mda.system.account.domain.transaction.proccesor.TransferTransaction" access="FIELD">
         <discriminator-value>TRANSFER</discriminator-value>
         <attributes>
             <many-to-one name="accountSource" target-entity="com.maslonka.mda.system.account.domain.account.Account">
@@ -88,7 +88,7 @@
             </many-to-one>
             <many-to-one name="accountDestination"
                          target-entity="com.maslonka.mda.system.account.domain.account.Account">
-                <!-- Nastavenie názvu stĺpca cudzieho kľúča pre accountDestination -->
+                <!-- Nastavenie názvu stĺpca cudzieho kľúča pre accountDestinationId -->
                 <join-column name="destination_account_id"/>
                 <foreign-key foreign-key-definition="fk_transfer_destination_account_id" constraint-mode="CONSTRAINT"
                              name="fk_transfer_destination_account_id"/>

@@ -28,11 +28,16 @@ management:
         include: health, metrics, info
 
 server:
-  servlet:
-    context-path: /api/v1
   port: 8080
 
 logging:
   level:
     org.hibernate.SQL: DEBUG
     com.maslonka.mda.system.customer: DEBUG
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: false
+
+security:
+  enabled: false

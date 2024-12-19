@@ -1,6 +1,6 @@
 package com.maslonka.mda.system.customer.domain;
 
-import com.maslonka.mda.system.customer.domain.accountapi.CustomerAccountApi;
+import com.maslonka.mda.system.customer.domain.accountapi.AccountServiceApi;
 import com.maslonka.mda.system.customer.domain.customer.Customer;
 import com.maslonka.mda.system.customer.domain.customer.CustomerService;
 import com.maslonka.mda.system.customer.domain.mapper.CustomerDomainMapper;
@@ -11,9 +11,9 @@ import com.maslonka.mda.system.customer.domainapi.dto.CustomerUpdateRequestDomai
 public class DomainCustomerFacade {
 
     private final CustomerService customerService;
-    private final CustomerAccountApi accountApi;
+    private final AccountServiceApi accountApi;
 
-    public DomainCustomerFacade(CustomerService customerService, CustomerAccountApi accountApi) {
+    public DomainCustomerFacade(CustomerService customerService, AccountServiceApi accountApi) {
         this.customerService = customerService;
         this.accountApi = accountApi;
     }

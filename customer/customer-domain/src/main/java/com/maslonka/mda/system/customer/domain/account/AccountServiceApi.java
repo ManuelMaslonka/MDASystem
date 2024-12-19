@@ -1,6 +1,4 @@
-package com.maslonka.mda.system.customer.domain.customer;
-
-import com.maslonka.mda.system.customer.domain.account.Account;
+package com.maslonka.mda.system.customer.domain.account;
 
 import java.util.List;
 
